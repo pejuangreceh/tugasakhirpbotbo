@@ -1,0 +1,56 @@
+public static void main(String[] args) throws IOException{
+        Scanner terminalInput = new Scanner(System.in);
+        String pilihanUser;
+        boolean isiLanjutan = true;
+        
+        while(isiLanjutan){
+            clearScreen();
+        System.out.println("Database Perpustakaan\n");
+        System.out.println("1.\tLihat seluruh buku");
+        System.out.println("2.\tCari data buku");
+        System.out.println("3.\tTambah data buku");
+        System.out.println("4.\tUbah data buku");
+        System.out.println("5.\tHapus data buku");
+        
+        System.out.println("\n\nPilihan Anda : ");
+        pilihanUser = terminalInput.next();
+        
+        switch(pilihanUser){
+            case "1":
+                System.out.println("LIST SELURUH BUKU");
+                
+                break;
+            case "2":
+                System.out.println("CARI BUKU");
+                break;
+            case "3":
+                System.out.println("TAMBAH DATA BUKU");
+                break;
+            case "4":
+                System.out.println("UBAH DATA BUKU");
+                break;
+            case "5":
+                System.out.println("HAPUS DATA BUKU");
+                break;
+            default: System.err.println("Input anda tidak ditemukan\nSilahkan pilih [1-5]");
+        }
+            System.out.print("Apakah anda ingin melanjutkan (y/n)?");
+            pilihanUser = terminalInput.next();
+            
+            isiLanjutan = pilihanUser.equalsIgnoreCase("y");
+        }
+    }
+    public static void tampilkanData() throws IOException{}
+    public static void clearScreen(){
+        try{
+            if(System.getProperty("os.name").contains("Windows")){
+                new ProcessBuilder("cmd","/c","cls").inheritIO().start().waitFor();
+            }
+            else{
+                System.out.println("/033/143");
+            }
+        }
+        catch (Exception e){
+            System.err.println("tidak bisa clear screen");
+        }
+    }
